@@ -1,11 +1,10 @@
 package apsAbstractFactory;
 
-public class BotaoWindows implements Botao {
+public class JanelaAndroid implements Janela {
 
 	@Override
 	public String desenhar() {
-		
-		return "BotaoWindows";
+		return "JanelaAndroid";
 	}
 
 }

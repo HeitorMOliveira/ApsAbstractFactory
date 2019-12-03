@@ -1,22 +1,32 @@
 package Tela;
 
+import apsAbstractFactory.Botao;
+import apsAbstractFactory.FabricaAbstrata;
 import apsAbstractFactory.FabricaWindows;
+import apsAbstractFactory.Janela;
+import apsAbstractFactory.Menu;
 
 public class TelaProjeto {
 
-	private FabricaWindows fabrica;
+	private Menu menu;
+	private Janela janela;
+	private Botao botao;
 
-	public void setFabrica(FabricaWindows fabrica) {
+	private FabricaAbstrata fabrica;
+
+	public void setFabrica(FabricaAbstrata fabrica) {
 		this.fabrica = fabrica;
 	}
-	
-	public void Montar() {
-		
-		
+
+	public void montar() {
+		this.botao = fabrica.criarBotao();
+		this.janela = fabrica.criarJanela();
+		this.menu = fabrica.criarMenu();
 	}
-	
-	public String Desenhar() {
-		return "";
+
+	public String desenhar() {
+		return janela.desenhar() + " { " + menu.desenhar() + ", " + botao.desenhar() + " }";
 	}
-	
+
 }
+//"JanelaWindows { MenuWindows, BotaoWindows }"
